@@ -54,6 +54,7 @@ define('moduleA.classB',function(){
 ```
 
 ⋅⋅⋅模块的命名空间可以是任意深度的，例如：
+```javascript
 define('moduleA.moduleB.moduleC.classA',function(){
 	this.export = {};
 });
@@ -68,11 +69,15 @@ import('moduleA.classB',callback);
 require('moduleA.classB',callback);
 ```
 
-⋅⋅⋅当然既然是模块，就一定存在依赖管理，这里使用一种静态集中配置，很容易理解,：
+⋅⋅⋅当然既然是模块管理框架，就一定存在依赖管理问题，这里使用一种静态集中配置，很容易理解,：
 ```javascript
 //在加载moduleA.classB时， 会先检查静态依赖关系，然后先加在依赖模块
 JL.addDepend({
   'moduleA.classB' : ['moduleB.classB', 'moduleB.classC', 'moduleA.classA'],
 });
 ```
+⋅⋅⋅最后如果你想在调试时禁止本地存储缓存你的代码，你在你的地址栏上加上debug参数，例如：  
+http://yourdomain.com/?debug=true;  
 
+##正在使用的项目
+[logo]: http://image20.it168.com/201211_500x375/1243/bd48b6844020293d.jpg "micloud"
