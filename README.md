@@ -53,6 +53,12 @@ define('moduleA.classB',function(){
 });
 ```
 
+⋅⋅⋅模块的命名空间可以是任意深度的，例如：
+define('moduleA.moduleB.moduleC.classA',function(){
+	this.export = {};
+});
+```
+
 ⋅⋅⋅然后是调用到这个定义的模块  
 ```javascript
 import('moduleA.classB',callback);
@@ -60,5 +66,13 @@ import('moduleA.classB',callback);
 ⋅⋅⋅当然如果你确定模块已经加载或者是使用同步方式调用，则可以用：  
 ```javascript
 require('moduleA.classB',callback);
+```
+
+⋅⋅⋅当然既然是模块，就一定存在依赖管理，这里使用一种静态集中配置，很容易理解,：
+```javascript
+//在加载moduleA.classB时， 会先检查静态依赖关系，然后先加在依赖模块
+JL.addDepend({
+  'moduleA.classB' : ['moduleB.classB', 'moduleB.classC', 'moduleA.classA'],
+});
 ```
 
