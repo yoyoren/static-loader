@@ -15,9 +15,13 @@ Usage
 ##Step2：
 然后你需要引入框架基本代码
 你可以这样
+```javascript
 <script>document.write('<script src="'+YOUR_DOMAIN+'src/loader.js"><\/script>');</script>
+```
 或直接一点
+```javascript
 <script src="YOUR_DOMAIN/src/loader.js"><\/script>');
+```
 
 ##Step3：
 最后在开始使用前，你需要做一些必要的配置
