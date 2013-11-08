@@ -80,4 +80,6 @@ JL.addDepend({
 http://yourdomain.com/?debug=true;  
 
 ##正在使用的项目
+![alt text][logo]
+
 [logo]: http://image20.it168.com/201211_500x375/1243/bd48b6844020293d.jpg "micloud"
