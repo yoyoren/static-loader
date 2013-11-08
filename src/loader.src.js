@@ -69,6 +69,7 @@ var JL = (function() {"use strict";
     },
 
     _dependTable : {},
+	
 
     //外部增加配置
     setConfig : function(c) {

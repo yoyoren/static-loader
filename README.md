@@ -16,7 +16,7 @@ Usage
 然后你需要引入框架基本代码
 你可以这样
 ```javascript
-<script>document.write('<script src="'+YOUR_DOMAIN+'src/loader.js"><\/script>');</script>
+<script>document.write('<script src="'+YOUR_DOMAIN+'src/loader.src.js"><\/script>');</script>
 ```
 或直接一点
 ```javascript
@@ -31,7 +31,41 @@ Usage
 ⋅⋅⋅http://yourdomain.com/dir/{VERSION}/a.js  
 ⋅⋅⋅http://yourdomain.com/dir/a.js?ver={VERSION};  
 ⋅⋅⋅作为一个前端工程师，你的静态资源在发布的时候一定是携带版本号的，否则你无法保证资源部被浏览器缓存。  
-
+```javascript
+JL.setVersion({
+  'moduleA.ClassB':'{versionNumbber}'
+});
+```
+下面这是一个真实的demo,会更直观，通常文件的版本号由你代码管理工具（git,svn等）自动生成：
+```javascript
+JL.setVersion({
+  "lang.en" : "6zzamt",
+  "map.baiduMap" : "A121cx",
+  "ui.listloader" : "CBOAxd_",
+  "lang.zhtw" : "2uvXj2N",
+  "sms.sendSMSPannelV2" : "8pe~xZ~",
+  "ui.notice" : "24EFzi8",
+  "ui.timelineV2" : "5d8Rzxw",
+  "sms.detail" : "8Zpp0Gy",
+  "contact.timeline2" : "6Ywgw8o",
+  "contact.menu" : "C_QDDtw",
+  "note.richEditor" : "95Z60Lu",
+  "ui.toolmenu" : "EXarxVI",
+  "ui.selector" : "2lEYh7e",
+  "map.baiduInit" : "7GHDHm9",
+  "lang.loader" : "2ufICUO",
+  "sms.richEditor" : "4gLxK5Z",
+  "lang.chn" : "2uvXj2N",
+  "gallery.selectbar" : "EGGpwYr",
+  "contact.selector" : "6UqpwQ0",
+  "contact.pickerV2" : "A3Gapnk",
+  "gallery.dragImage" : "ARzM2L2",
+  "contact.groupmenu" : "AyqSq9z",
+  "contact.detail" : "5VRCCOR",
+  "ui.progress" : "9YC_b1M"
+})
+```
+设置好模块的版本号后，做一些全局的配置，这些配置和静态资源环境的部署有关。
 ```javascript
 JL.setConfig({
   //设置你在步骤一中存放代理地址的url
@@ -60,6 +94,7 @@ define('moduleA.moduleB.moduleC.classA',function(){
 });
 ```
 
+
 ⋅⋅⋅然后是调用到这个定义的模块  
 ```javascript
 import('moduleA.classB',callback);
@@ -79,7 +114,4 @@ JL.addDepend({
 ⋅⋅⋅最后如果你想在调试时禁止本地存储缓存你的代码，你在你的地址栏上加上debug参数，例如：  
 http://yourdomain.com/?debug=true;  
 
-##正在使用的项目
-![alt text][logo]
 
-[logo]: http://image20.it168.com/201211_500x375/1243/bd48b6844020293d.jpg "micloud"
