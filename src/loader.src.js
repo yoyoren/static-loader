@@ -76,6 +76,7 @@ var JL = (function() {"use strict";
       this._config.baseUrl = c.baseUrl||URL;
       this._config.baseDir = c.baseDir;
       this._config.timeout = c.timeout||_config.timeout;
+	  this._config.proxyUrl = c.proxyUrl||_config.proxyUrl;
       return this;
     },
 
@@ -502,7 +503,7 @@ var JL = (function() {"use strict";
       //var _iframe = document.getElementById('connect_iframe');
       var _iframe = document.createElement('iframe');
       var _self = this;
-      _iframe.src = URL + 'res/228Y2vo/scripts/micloudv2/proxy.htm';
+      _iframe.src = this._config.proxyUrl;
       _iframe.height = 0;
       _iframe.width = 0;
       _iframe.frameborder = '0';

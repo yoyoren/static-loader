@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html><head>
+<script>
+		  var _xhr;
+          var get = function(url, callback) {
+            var _xhr = null;
+            try {
+              _xhr = new window.XMLHttpRequest();
+            } catch(ex) {
+              try {
+                _xhr = new ActiveXObject("Msxml2.XMLHTTP");
+              } catch(ex) {
+              }
+            }
+            _xhr.onreadystatechange = function() {
+             try{
+              if (_xhr.readyState == 4 && _xhr.status == 200 ) {
+                callback(_xhr.responseText);
+              }
+             }catch(ex){
+
+             }
+            }
+            url+=('&_ts='+(new Date()).getTime());
+            _xhr.open('get', url, false);
+            _xhr.send(null)
+          }
+          var onmessage = function(e) {
+            var _data = e.data.split('&&&');
+            var _url = _data[0];
+            var _mod = _data[1];
+            var _exec = 'true';
+            if(_data.length == 3){
+               _exec = 'false';
+            }
+            get(_url, function(code) {
+              top.postMessage([code, _mod,_exec].join('&&&'), '*');
+            })
+          };
+          //监听postMessage消息事件
+          if ( typeof window.addEventListener != 'undefined') {
+            window.addEventListener('message', onmessage, false);
+          } else if ( typeof window.attachEvent != 'undefined') {
+            window.attachEvent('onmessage', onmessage);
+          }
+</script>
+</head><body></body>
+</html>
