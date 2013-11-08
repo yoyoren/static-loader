@@ -24,13 +24,13 @@ Usage
 ```
 
 ##Step3：
-最后在开始使用前，你需要做一些必要的配置.
-这里需要注意的是baseUrl中必须有{VERSION}，用来标记同一个静态文件的不同版本号。
-当然'{VERSION}'不一定可以放在URL中任意位置，例如
-⋅⋅⋅http://yourdomain.com/{VERSION}/a.js
-⋅⋅⋅http://yourdomain.com/dir/{VERSION}/a.js
-⋅⋅⋅http://yourdomain.com/dir/a.js?ver={VERSION};
-⋅⋅⋅作为一个前端工程师，你的静态资源在发布的时候一定是携带版本号的。
+最后在开始使用前，你需要做一些必要的配置.  
+这里需要注意的是baseUrl中必须有{VERSION}，用来标记同一个静态文件的不同版本号。  
+当然'{VERSION}'不一定可以放在URL中任意位置，例如  
+⋅⋅⋅http://yourdomain.com/{VERSION}/a.js  
+⋅⋅⋅http://yourdomain.com/dir/{VERSION}/a.js  
+⋅⋅⋅http://yourdomain.com/dir/a.js?ver={VERSION};  
+⋅⋅⋅作为一个前端工程师，你的静态资源在发布的时候一定是携带版本号的，否则你无法保证资源部被浏览器缓存。  
 
 ```javascript
 JL.setConfig({
@@ -53,11 +53,11 @@ define('moduleA.classB',function(){
 });
 ```
 
-⋅⋅⋅然后是调用到这个定义的模块
+⋅⋅⋅然后是调用到这个定义的模块  
 ```javascript
 import('moduleA.classB',callback);
 ```
-⋅⋅⋅当然如果你确定模块已经加载或者是使用同步方式调用，则可以用
+⋅⋅⋅当然如果你确定模块已经加载或者是使用同步方式调用，则可以用：  
 ```javascript
 require('moduleA.classB',callback);
 ```
